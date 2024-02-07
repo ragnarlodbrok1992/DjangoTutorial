@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <h1>Welcome to Games list!</h1>
+            {% for adjective in adjectives %}
+                {% if adjective == 'fun' %}
+                    <p>Oh, boi! This game is so {{ adjective }}!</p>
+                {% else %}
+                    <p>This is a {{ adjective }} game!</p>
+                {% endif %}
+            {% endfor %}
+{% endblock %}
