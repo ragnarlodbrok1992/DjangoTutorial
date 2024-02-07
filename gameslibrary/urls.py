@@ -28,6 +28,6 @@ admin.site.register(Game)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('gameslist/<str:s0>/', gameslist),
-    path('gamesplayer/', hello_player),
+    path('gameslist/', gameslist),
+    path('gamesplayer/', hello_player, name='hello_player'),
 ]
