@@ -17,8 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from gameslist.views import gameslist
 from gamesplayer.views import gamesplayer, hello_player
+from gameslist.views import GamesListView
 
 from gameslist.models import Genre, Game
 
@@ -28,6 +28,6 @@ admin.site.register(Game)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('gameslist/', gameslist),
+    path('gameslist/', GamesListView.as_view()),
     path('gamesplayer/', hello_player, name='hello_player'),
 ]
