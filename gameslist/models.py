@@ -1,6 +1,6 @@
 from django.db.models import (
     Model, CharField, ForeignKey, DO_NOTHING,
-    IntegerField, DateField, DateTimeField
+    IntegerField, DateField, DateTimeField,
 )
 
 

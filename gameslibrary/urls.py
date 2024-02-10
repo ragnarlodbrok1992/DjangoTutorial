@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.shortcuts import redirect
 from gamesplayer.views import gamesplayer, hello_player
-from gameslist.views import GamesListView
+from gameslist.views import (
+    GamesListCreateView, GamesListView, GamesListUpdateView
+)
 
 from gameslist.models import Genre, Game
 
@@ -28,6 +31,10 @@ admin.site.register(Game)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('gameslist/', GamesListView.as_view()),
+    path('', lambda req: redirect('gameslist/')),
+    path('gameslist/', GamesListView.as_view(), name='gameslist'),
     path('gamesplayer/', hello_player, name='hello_player'),
+    path('gameslist/create/', GamesListCreateView.as_view(), name='gameslist_create'),
+    path('gameslist/update/<pk>', GamesListUpdateView.as_view(), name='gameslist_update'),
+    path('gameslist/delete/<pk>', GamesListUpdateView.as_view(), name='gameslist_delete'),
 ]
