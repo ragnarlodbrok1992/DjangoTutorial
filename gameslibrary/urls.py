@@ -20,7 +20,7 @@ from django.urls import path
 from django.shortcuts import redirect
 from gamesplayer.views import gamesplayer, hello_player
 from gameslist.views import (
-    GamesListCreateView, GamesListView, GamesListUpdateView
+    GamesListCreateView, GamesListView, GamesListUpdateView, GamesListDeleteView
 )
 
 from gameslist.models import Genre, Game
@@ -36,5 +36,5 @@ urlpatterns = [
     path('gamesplayer/', hello_player, name='hello_player'),
     path('gameslist/create/', GamesListCreateView.as_view(), name='gameslist_create'),
     path('gameslist/update/<pk>', GamesListUpdateView.as_view(), name='gameslist_update'),
-    path('gameslist/delete/<pk>', GamesListUpdateView.as_view(), name='gameslist_delete'),
+    path('gameslist/delete/<pk>', GamesListDeleteView.as_view(), name='gameslist_delete'),
 ]
