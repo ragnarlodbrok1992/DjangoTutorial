@@ -67,10 +67,10 @@ class GamesListCreateView(CreateView):
 
 
 class GamesListUpdateView(UpdateView):
-    template_name = 'form.html'
+    template_name = 'gameslist_form.html'
     model = Game
     form_class = GameForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('gameslist')
 
     def form_invalid(self, form):
         LOGGER.warning('User provided invalid data while updating a movie.')

@@ -7,6 +7,8 @@ from django.db.models import (
 class Genre(Model):
     name = CharField(max_length=128, default='unknown')
 
+    def __str__(self):
+        return self.name
 
 class Game(Model):
     name = CharField(max_length=100)
